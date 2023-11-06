@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Calculator Meta Informations -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Calculator Informations -->
+    <meta name="author" content="Alex Kramer">
+    <meta name="description" content="A simple calculator">
+
+    <!--- Calculator Style Part --->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- Calculator Title Part --->
+    <title>Calculator</title>
+</head>
+<body>
+    
+    <!-- Calculator Header Part --->
+    <h1> Calculator </h1>
+
+    <!-- Calculator Input Part --->
+    Here you have to enter the numbers: <br>
+    <input type="number" id="number1" placeholder="First number:">
+    <input type="number" id="number2" placeholder="Second number:"> <br>
+    <br>
+
+    Now you have to choose the operation: <br>
+    <select id="operation">
+    <option value="choose">Choose an operation:</option>
+    <option value="add">Addition</option>
+    <option value="sub">Subtraction</option>
+    <option value="mul">Multiplication</option>
+    <option value="div">Division</option>
+    </select> <br> <br>
+
+    <!-- Calculator Button Part --->
+    <button onclick="calculate()">Calculate</button>
+
+    <script>
+        function calculate() {
+            var number1 = document.getElementById("number1").value;
+            var number2 = document.getElementById("number2").value;
+            var operation = document.getElementById("operation").value;
+            var result;
+
+            if (operation == "add") {
+                result = parseInt(number1) + parseInt(number2);
+            } else if (operation == "sub") {
+                result = parseInt(number1) - parseInt(number2);
+            } else if (operation == "mul") {
+                result = parseInt(number1) * parseInt(number2);
+            } else if (operation == "div") {
+                result = parseInt(number1) / parseInt(number2);
+            } else if (operation == "choose") {
+                result = "Error";
+            }
+
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+
+    <!-- Calculator Output Part --->
+    <p id="result"></p>
+
+    <!--- Calculator Script Part --->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
